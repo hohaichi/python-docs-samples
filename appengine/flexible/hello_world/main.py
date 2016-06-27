@@ -14,16 +14,22 @@
 
 # [START app]
 import logging
+import random
+import string
 
-from flask import Flask
+from flask import Flask, session
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY']='test'
 
 
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
+    f = open('/tmp/thisisawesoem.txt', 'w')
+    f.write("hello world")
+    f.close()
     return 'Hello World!'
 
 
